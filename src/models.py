@@ -27,10 +27,15 @@ class Page(Base):
     id = Column(Integer, primary_key=True)
     url = Column(String, unique=True, index=True, nullable=False)
     fetched_at = Column(DateTime, default=lambda:datetime.now(UTC))
-    status_code = Column(Integer, nullable=True)
+    status_code = Column(Integer, nullable=True)     # 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Error), 5xx (Server Error)
     title = Column(String, nullable=True)
     lang = Column(String(16), nullable=True)
     text_excerpt = Column(Text, nullable=True)
+    html_path = Column(String, nullable=True)
+    raw_meta = Column(JSON, nullable=True)
+    summary_text = Column(Text, nullable=True)
+    summary_keywords = Column(JSON, nullable=True)   # JSON for lists; SQLite will store as TEXT
+    embedding = Column(JSON, nullable=True)          # store vector as JSON list
     html_path = Column(String, nullable=True)
     raw_meta = Column(JSON, nullable=True)
 
