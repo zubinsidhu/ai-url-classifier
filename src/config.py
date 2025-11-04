@@ -6,6 +6,8 @@ Settings are read from environment variables with sensible defaults.
 from dataclasses import dataclass
 import os
 
+# Config class defines the configuration data for the fetch/extract pipeline.
+
 @dataclass
 class Config:
     DB_URL: str = os.getenv("DB_URL", "sqlite:///pages.db")
@@ -16,5 +18,7 @@ class Config:
     RATE_LIMIT_SECONDS: float = float(os.getenv("RATE_LIMIT_SECONDS", "0.5"))
     MAX_TEXT_SIZE: int = int(os.getenv("MAX_TEXT_SIZE", "200000"))  # chars to store
     ALLOW_ROBOTS_FALLBACK: bool = os.getenv("ALLOW_ROBOTS_FALLBACK", "true").lower() == "true"
+
+# cfg is the global configuration object.
 
 cfg = Config()
