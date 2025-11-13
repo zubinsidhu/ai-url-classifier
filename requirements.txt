@@ -4,6 +4,7 @@ trafilatura==1.5.0
 beautifulsoup4==4.12.2
 SQLAlchemy>=2.0.22
 python-dotenv==1.0.0
+greenlet==3.0.1     # ensure Playwright compatibility
 langdetect==1.0.9
 requests==2.31.0
 validators==0.20.0
@@ -12,3 +13,6 @@ transformers==4.40.1
 torch>=2.2.0
 sentence-transformers==2.2.2
 scipy==1.11.3
+sqlite-utils>=3.35
+datasette>=0.64  # optional: view db in browser
+pandas>=2.1.0
